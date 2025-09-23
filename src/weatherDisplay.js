@@ -61,6 +61,43 @@ const moreConditions = (container, data) => {
     conditionContainer(currentContainer, `Sunset`, `${data.currentConditions.sunset}`)
 }
 
+const dayForecast = (container, data) => {
+    const dayForecast = document.createElement(`div`)
+    dayForecast.className = `dayForecast`
+    container.appendChild(dayForecast)
+
+    const forecastDate = document.createElement(`h2`)
+    forecastDate.id = `forecastDate`
+    forecastDate.textContent = `${data.datetime}`
+    dayForecast.appendChild(forecastDate)
+
+    const temperature = document.createElement(`h2`)
+    temperature.id = `temperature`
+    temperature.textContent = `${data.tempmax}`
+    dayForecast.appendChild(temperature)
+
+    const conditions = document.createElement(`h2`)
+    conditions.id = `conditions`
+    conditions.textContent = `${data.conditions}`
+    dayForecast.appendChild(conditions)
+}
+
+const forecast = (container, data) => {
+    const forecastContainer = document.createElement(`div`)
+    forecastContainer.id = `forecastContainer`
+    container.appendChild(forecastContainer)
+
+    const label = document.createElement(`h1`)
+    label.textContent = `This week's forecast`
+    forecastContainer.appendChild(label)
+
+    const forecastLength = data.days.length
+
+    for (let i = 1; i < forecastLength; i += 1) {
+        dayForecast(forecastContainer, data.days[i])
+    }
+}
+
 export default function weatherDisplay(container, weatherData) {
     const displayContainer = document.createElement(`div`)
     displayContainer.id = `weatherContainer`
@@ -80,7 +117,12 @@ export default function weatherDisplay(container, weatherData) {
     detailContainer.id = `detailContainer`
     displayContainer.appendChild(detailContainer)
 
-    currentTemperature(detailContainer, weatherData)
-    moreConditions(detailContainer, weatherData)
+    const currentConditions = document.createElement(`div`)
+    currentConditions.id = `currentConditions`
+    detailContainer.appendChild(currentConditions)
+
+    currentTemperature(currentConditions, weatherData)
+    moreConditions(currentConditions, weatherData)
+    forecast(detailContainer, weatherData)
 
 }

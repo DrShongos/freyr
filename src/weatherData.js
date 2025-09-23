@@ -4,7 +4,7 @@ const BASE_URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/r
 const queryWeather = async (location) => {
     try {
         const response =
-            await fetch(`${BASE_URL}${location}?unitGroup=metric&key=${API_KEY}&contentType=json`)
+            await fetch(`${BASE_URL}${location}/today/next7days?unitGroup=metric&key=${API_KEY}&contentType=json`)
 
         const response_json = await response.json()
 
