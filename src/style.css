@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: 'Pixelify Sans';
+    color: #6C945C;
+}
+
+button,
+input {
+    background-color: #2C3A1F;
+    border-color: #83B055;
+    border-radius: 15px;
+    border-width: 3px;
+    margin-left: 40px;
+    height: 50px;
+}
+
+button:hover {
+    background-color: #6C945C;
+    color: #2C3A1F;
+}
+
+input {
+    width: 500px;
+}
+
+
+body {
+    background-color: #2C3A1F;
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.headerDisplay,
+.statusContainer {
+    border-radius: 50px;
+    background-color: #C8E980;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.headerDisplay>h1,
+.headerDisplay>h2,
+.statusContainer>h1 {
+    color: #2C3A1F;
+}
+
+.conditionDisplay {
+    align-items: center;
+    color: #2C3A1F;
+    height: 60px;
+}
+
+header {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 250px;
+    width: 80%;
+    justify-content: space-between;
+}
+
+#content {
+    display: flex;
+    padding-top: 50px;
+}
+
+#weatherContainer {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#cityDisplayContainer {
+    width: 50%;
+}
+
+#weatherContainer>* {
+    align-items: center;
+}
+
+#detailContainer {
+    display: flex;
+    padding-top: 30px;
+    align-items: center;
+    gap: 100px;
+}
+
+#currentConditions {
+    display: flex;
+    flex-direction: column;
+    column-gap: 40px;
+}
+
+#moreConditions {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+}
+
+#forecastContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.dayForecast {
+    display: flex;
+    gap: 60px;
+}

@@ -11,4 +11,4 @@ const contentContainer = document.querySelector(`#content`)
 
 searchBar(contentContainer)
 
-await updateContent(contentContainer, `warsaw`)
+await updateContent(contentContainer, `Warsaw`)

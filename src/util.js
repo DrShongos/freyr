@@ -18,6 +18,7 @@ const updateContent = async (contentContainer, location) => {
         clearElement(contentContainer)
         weatherDisplay(contentContainer, weatherData)
     } catch (errorMessage) {
+        clearElement(contentContainer)
         statusBar(contentContainer, errorMessage)
     }
 }

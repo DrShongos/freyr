@@ -19,9 +19,13 @@ const conditionContainer = (container, label, info) => {
     newContainer.className = `conditionContainer`
     container.appendChild(newContainer)
 
+    const conditionLabelContainer = document.createElement('div')
+    conditionLabelContainer.classList.add(`headerDisplay`, `conditionDisplay`)
+    newContainer.appendChild(conditionLabelContainer)
+
     const labelDisplay = document.createElement(`h2`)
     labelDisplay.textContent = `${label}`
-    newContainer.appendChild(labelDisplay)
+    conditionLabelContainer.appendChild(labelDisplay)
 
     const infoDisplay = document.createElement(`h1`)
     infoDisplay.textContent = `${info}`
@@ -87,9 +91,14 @@ const forecast = (container, data) => {
     forecastContainer.id = `forecastContainer`
     container.appendChild(forecastContainer)
 
+    const forecastLabelContainer = document.createElement(`div`)
+    forecastLabelContainer.id = `forecastLabelContainer`
+    forecastLabelContainer.className = `headerDisplay`
+    forecastContainer.appendChild(forecastLabelContainer)
+
     const label = document.createElement(`h1`)
     label.textContent = `This week's forecast`
-    forecastContainer.appendChild(label)
+    forecastLabelContainer.appendChild(label)
 
     const forecastLength = data.days.length
 
@@ -103,15 +112,20 @@ export default function weatherDisplay(container, weatherData) {
     displayContainer.id = `weatherContainer`
     container.appendChild(displayContainer)
 
+    const cityDisplayContainer = document.createElement(`div`)
+    cityDisplayContainer.id = `cityDisplayContainer`
+    cityDisplayContainer.className = `headerDisplay`
+    displayContainer.appendChild(cityDisplayContainer)
+
     const cityDisplay = document.createElement(`h1`)
     cityDisplay.id = `cityDisplay`
     cityDisplay.textContent = `${weatherData.resolvedAddress}`
-    displayContainer.appendChild(cityDisplay)
+    cityDisplayContainer.appendChild(cityDisplay)
 
     const currentTime = document.createElement(`h2`)
     currentTime.id = `currentTime`
     currentTime.textContent = `${weatherData.currentConditions.datetime}`
-    displayContainer.appendChild(currentTime)
+    cityDisplayContainer.appendChild(currentTime)
 
     const detailContainer = document.createElement(`div`)
     detailContainer.id = `detailContainer`
