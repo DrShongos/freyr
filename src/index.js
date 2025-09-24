@@ -5,10 +5,10 @@ import queryWeather from './weatherData.js'
 import searchBar from './searchBar.js'
 import weatherDisplay from "./weatherDisplay.js"
 
+import { updateContent } from "./util.js"
+
 const contentContainer = document.querySelector(`#content`)
 
 searchBar(contentContainer)
 
-var weatherData = await queryWeather('warsaw')
-weatherDisplay(contentContainer, weatherData)
-console.log(weatherData)
+await updateContent(contentContainer, `warsaw`)

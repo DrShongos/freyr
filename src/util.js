@@ -1,3 +1,7 @@
+import queryWeather from "./weatherData"
+import weatherDisplay from "./weatherDisplay"
+import statusBar from "./statusBar"
+
 const clearElement = (element) => {
     let child = element.lastChild
     while (child != null) {
@@ -6,6 +10,19 @@ const clearElement = (element) => {
     }
 }
 
+const updateContent = async (contentContainer, location) => {
+    clearElement(contentContainer)
+    statusBar(contentContainer, `Searching for information on the specified location. Please wait.`)
+    try {
+        const weatherData = await queryWeather(location)
+        clearElement(contentContainer)
+        weatherDisplay(contentContainer, weatherData)
+    } catch (errorMessage) {
+        statusBar(contentContainer, errorMessage)
+    }
+}
+
 export {
-    clearElement
+    clearElement,
+    updateContent
 }

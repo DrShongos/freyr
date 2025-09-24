@@ -1,6 +1,4 @@
-import queryWeather from "./weatherData"
-import weatherDisplay from "./weatherDisplay"
-import { clearElement } from "./util"
+import { updateContent } from "./util"
 
 export default function searchBar(contentContainer) {
     const searchForm = document.querySelector('#search-form')
@@ -14,9 +12,8 @@ export default function searchBar(contentContainer) {
 
         if (searchBar.value.length < 1) return
 
-        clearElement(contentContainer)
-        const weatherData = await queryWeather(searchBar.value)
-        weatherDisplay(contentContainer, weatherData)
+        await updateContent(contentContainer, searchBar.value)
+
         searchBar.value = ''
     })
 }
